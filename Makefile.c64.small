@@ -1,0 +1,25 @@
+CFLAGS=--target c64 --add-source -O -DSMALL
+AFLAGS=--target c64 --listing
+LDFLAGS=--target c64 -v
+OBJS=smalltarget/action.o smalltarget/object.o smalltarget/perform.o smalltarget/room.o \
+     smalltarget/game.o smalltarget/input.o smalltarget/output.o
+
+all: smalltarget potion.4k.prg
+	ls -o potion.4k.prg
+
+smalltarget:
+	mkdir smalltarget
+
+potion.4k.prg: smalltarget/potion.bin
+	pucrunch -fshort -c64 -m5 smalltarget/potion.bin potion.4k.prg
+
+smalltarget/potion.bin: $(OBJS)
+	ld65 $(LDFLAGS) -Ln smalltarget/potion.labels -o smalltarget/potion.bin c64.o $(OBJS) c64.lib
+
+smalltarget/%.o: smalltarget/%.s
+	ca65 $(AFLAGS) -o $@ $<
+
+smalltarget/%.s: %.c
+	cc65 $(CFLAGS) -o $@ $<
+
+.PHONY: all

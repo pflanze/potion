@@ -1,0 +1,53 @@
+The Potion
+==========
+
+Entry to the 4k minigame competition 2003
+<URL:http://www.ffd2.com/minigame/>
+
+Copyright © 2002-2003 Peter Karlsson <peter@softwolves.pp.se>
+A Softwolves Software Release in 2003
+<URL:http://www.softwolves.pp.se/cbm/>
+
+Background
+----------
+
+You are going about doing your own business, when you suddenly are
+transported to the middle of a dark forest in a far away land. You have no
+idea what you are doing here or how to get out, it is your task to find out.
+
+Instructions
+------------
+
+This is a simple text adventure game. It accepts commands on the form "verb
+noun", for example: "take key". A full list of commands is given below. Your
+first object of the game is to figure out what the object of the game is,
+then to carry out the task that has been presented for you.
+
+The game recognises these one-word commands:
+
+ * "n", "s", "e", "w": Directional movement.
+ * "i": Display inventory.
+ * "look": Display room description.
+ * "quit": Exit the game.
+ * "license": Display license terms (not in the 4k version).
+
+The game recognises these verbs, which must be used with a noun:
+
+ "take", "pick up", "lift", "read", "talk to", "unlock", "open", "turn",
+ "hit", "punch", "kick", "kill", "pour", "empty", "drink", "throw",
+ "look at", "examine", "drop".
+
+License
+-------
+
+This program is free for use, but may not be modified before the end of the
+4k minigame 2003 competition. When the competition has ended, the full C
+sources will be released under the GNU General Public License, version 2,
+including a larger version with more descriptive texts that did not fit in
+4k.
+
+Versions
+--------
+
+Version 1.0 - 2003-06-28:
+* Initial release.

@@ -1,0 +1,37 @@
+The Potion
+==========
+
+Entry to the 4k minigame competition 2003
+<URL:http://www.ffd2.com/minigame/>
+
+Copyright © 2002-2003 Peter Karlsson <peter@softwolves.pp.se>
+A Softwolves Software Release in 2003
+<URL:http://www.softwolves.pp.se/cbm/>
+
+Game instructions
+-----------------
+
+Please see the file potion.txt for instructions.
+
+Building
+--------
+
+The program has been compiled for three configurations:
+
+* Linux
+
+This should build on any sane Linux installation with GCC. It ought to build
+on most platforms with GCC, but it has only been tested on Linux. Run "make
+local" to build the Linux binary.
+
+* Commodore 64
+* Commodore 64 4K
+
+These platforms require cc65 <URL:http://www.cc65.org/> to compile the
+target binary, and pucrunch <URL:http://www.cs.tut.fi/~albert/Dev/pucrunch/>
+to compress the resulting binary. The regular target uses the long
+descriptions as in the Linux version, the small target uses shorter
+descriptions and some optimized algorithms (mostly in-line assembly) to
+reduce the size to fit in the 4K requirement for the 2003 Minigame
+competition. Run "make c64" to build the regular C64 target and "make
+c64small" to build the C64 4K target.
