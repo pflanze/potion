@@ -14,7 +14,7 @@ potion.prg: target/potion.bin
 	pucrunch -fshort -c64 -m5 target/potion.bin potion.prg
 
 target/potion.bin: $(OBJS)
-	ld65 $(LDFLAGS) -Ln target/potion.labels -o target/potion.bin c64.o $(OBJS) c64.lib
+	ld65 $(LDFLAGS) -Ln target/potion.labels -o target/potion.bin $(OBJS) c64.lib
 
 target/%.o: target/%.s
 	ca65 $(AFLAGS) -o $@ $<
