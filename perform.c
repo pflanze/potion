@@ -5,6 +5,7 @@
 #include "action.h"
 #include "object.h"
 #include "output.h"
+#include "room.h"
 
 unsigned char perform(unsigned char verb)
 {
