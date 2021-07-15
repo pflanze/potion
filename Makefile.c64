@@ -22,3 +22,5 @@ target/%.s: %.c
 	cc65 $(CFLAGS) -o $@ $<
 
 .PHONY: all
+
+.PRECIOUS: target/%.s
