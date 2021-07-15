@@ -4,7 +4,7 @@ The Potion
 Entry to the 4k minigame competition 2003
 <URL:http://www.ffd2.com/minigame/>
 
-Copyright © 2002-2003 Peter Karlsson <peter@softwolves.pp.se>
+Copyright Â© 2002-2003 Peter Karlsson <peter@softwolves.pp.se>
 A Softwolves Software Release in 2003
 <URL:http://www.softwolves.pp.se/cbm/>
 
