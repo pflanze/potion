@@ -5,7 +5,6 @@ OBJS=target/action.o target/object.o target/perform.o target/room.o \
      target/game.o target/input.o target/output.o
 
 all: target potion.prg
-	ls -o potion.prg
 
 target:
 	mkdir target
