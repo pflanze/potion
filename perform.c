@@ -26,6 +26,9 @@ unsigned char perform(unsigned char verb)
 #ifndef SMALL
 		case V_LICENSE:
 			return license();
+                case V_HELP:
+                        print_help();
+                        return GAME_CONTINUES;
 #endif
 
 		case V_QUIT:

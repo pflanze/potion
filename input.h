@@ -22,6 +22,10 @@
 #define V_DROP 18
 #define V_LICENSE 19
 #define V_QUIT 20
+#define V_HELP 21
+
+/* Show help text with all the verbs */
+void print_help(void);
 
 /* Retrieve input from user and return the verb */
 unsigned char getinput(void);

@@ -42,7 +42,8 @@ static const struct verb_s verbs[] =
     ENTRY("drop", V_DROP),
 #ifndef SMALL
     ENTRY("license", V_LICENSE),
-    ENTRY("licence", V_LICENSE),
+    ENTRY("help", V_HELP),
+    ENTRY("?", V_HELP),
 #endif
     ENTRY("quit", V_QUIT),
     ENTRY("exit", V_QUIT),
@@ -50,6 +51,16 @@ static const struct verb_s verbs[] =
 };
 
 #define VERBS sizeof(verbs)/sizeof(struct verb_s)
+
+void print_help(void) {
+    unsigned char i;
+    PUTS("You can say the following:\n");
+    for (i=0; i<VERBS; i++) {
+        PUTCHAR(' '); PUTCHAR(' '); PUTS(verbs[i].s);
+    }
+    PUTCHAR('\n'); 
+}
+
 
 #ifdef __C64__
 static void __fastcall__ getline(void)
@@ -111,7 +122,7 @@ unsigned char getinput(void)
 #ifdef SMALL
 		PUTS("What?");
 #else
-		PUTS("I do not understand.");
+		PUTS("I do not understand. Say '?' or 'help' for help.");
 #endif
 	}
 }
