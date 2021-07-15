@@ -5,18 +5,14 @@
 #include "game.h"
 #include "output.h"
 
-#ifdef SMALL
-# define VERBS 27
-#else
-# define VERBS 29
-#endif
-
-static const struct verb_s
+struct verb_s
 {
 	const unsigned char len;
 	const char *s;
 	unsigned char verbnum;
-} verbs[VERBS] =
+};
+
+static const struct verb_s verbs[] =
 {
 	{ 1, "n", V_N },
 	{ 1, "s", V_S },
@@ -50,6 +46,8 @@ static const struct verb_s
 	{ 4, "quit", V_QUIT },
 	{ 4, "exit", V_QUIT },
 };
+
+#define VERBS sizeof(verbs)/sizeof(struct verb_s)
 
 #ifdef __C64__
 void __fastcall__ getline(void)
