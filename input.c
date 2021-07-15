@@ -94,20 +94,24 @@ static const v_nargs[NUMV] = {
 #endif
 
 void print_help(void) {
-    unsigned char inargs, i, is_first;
+    unsigned char inargs, i, verbnum, last_verbnum;
     PUTS("You can say the following:\n");
     for (inargs=0; inargs<NUMNARGS; inargs++) {
         prints("- ");
         prints(nargs_help[inargs]);
         prints(":\n\n  ");
-        is_first = 1;
+        last_verbnum = 255;
         for (i=0; i<VERBS; i++) {
-            if (v_nargs[verbs[i].verbnum - 1] == inargs) {
-                if (is_first) {
-                    is_first = 0;
+            verbnum= verbs[i].verbnum;
+            if (v_nargs[verbnum - 1] == inargs) {
+                if (last_verbnum == 255) {
+                    /* none seen, print nothing */
+                } else if (last_verbnum == verbnum) {
+                    prints(" / ");
                 } else {
                     prints(", ");
                 }
+                last_verbnum = verbnum;
                 prints(verbs[i].s);
             }
         }
