@@ -1,5 +1,5 @@
 CFLAGS=--target c64 --add-source -Oi
-AFLAGS=--target c64 --listing
+AFLAGS=--target c64
 LDFLAGS=--target c64 -v
 OBJS=target/action.o target/object.o target/perform.o target/room.o \
      target/game.o target/input.o target/output.o
