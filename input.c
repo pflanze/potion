@@ -56,9 +56,12 @@ void print_help(void) {
     unsigned char i;
     PUTS("You can say the following:\n");
     for (i=0; i<VERBS; i++) {
-        PUTCHAR(' '); PUTCHAR(' '); PUTS(verbs[i].s);
+        if (i != 0) {
+            PRINTS(", ");
+        }
+        PRINTS(verbs[i].s);
     }
-    PUTCHAR('\n'); 
+    PRINTS("\n\n"); 
 }
 
 
