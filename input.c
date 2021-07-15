@@ -18,7 +18,7 @@ struct verb_s
 
 #define NUMNARGS 3
 
-static const char* nargs_help[NUMNARGS] = {
+static const char* const nargs_help[NUMNARGS] = {
     "without an object",
     "optionally with an object",
     "with an object",
