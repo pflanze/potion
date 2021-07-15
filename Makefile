@@ -15,8 +15,17 @@ clean:
 local:
 	make -f Makefile.linux
 
+runlocal: local
+	./potion
+
 c64:
 	make -f Makefile.c64
+
+# "c64" is a script that should start "x64" from Vice with the right
+# -kernal, -basic, and -chargen and other options and values if
+# necessary
+runc64: c64
+	c64 -autostartprgmode 1 potion.prg
 
 c64small:
 	make -f Makefile.c64.small
