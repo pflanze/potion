@@ -6,7 +6,19 @@
 #include "game.h"
 
 #ifndef SMALL
-void putstring(const char *s)
+void putstring(const char *s) {
+    prints(s);
+    PUTCHAR('\n');
+}
+
+void puts_noeol(const char *s) {
+    while (*s) {
+        PUTCHAR(*s);
+        s++;
+    }
+}
+
+void prints(const char *s)
 {
 	static char tmpbuf[SCREENWIDTH];
 	NR size_t len;
@@ -62,7 +74,7 @@ void putstring(const char *s)
 		len -= width;
 	}
 
-	PUTS(s);
+	puts_noeol(s);
 }
 #endif
 

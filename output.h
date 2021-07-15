@@ -14,8 +14,12 @@ void myputs(const unsigned char *s);
  * Like puts() it adds a final line break. */
 void putstring(const char *s);
 
+/* Like putstring but without the final line break. */
+void prints(const char *s);
+
 # define PUTCHAR(c) putchar(c)
 # define PUTS(s) puts(s)
+# define PRINTS(s) prints(s)
 
 #endif
 
