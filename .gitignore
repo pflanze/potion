@@ -1,0 +1,5 @@
+/target/
+/smalltarget/
+/local/
+*.prg
+/potion
