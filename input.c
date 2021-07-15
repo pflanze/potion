@@ -50,7 +50,7 @@ static const struct verb_s verbs[] =
 #define VERBS sizeof(verbs)/sizeof(struct verb_s)
 
 #ifdef __C64__
-void __fastcall__ getline(void)
+static void __fastcall__ getline(void)
 {
 #define CHRIN 0xFFCF
 
