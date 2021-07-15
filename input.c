@@ -26,41 +26,41 @@ static const char* nargs_help[NUMNARGS] = {
 
 static const struct verb_s verbs[] =
 {
-#define ENTRY(str, const) { sizeof(str)-1, str, const }
-    ENTRY("n", V_N),
-    ENTRY("s", V_S),
-    ENTRY("e", V_E),
-    ENTRY("w", V_W),
-    ENTRY("i", V_I),
-    ENTRY("inventory", V_I),
-    ENTRY("take", V_TAKE),
-    ENTRY("pick up", V_TAKE),
-    ENTRY("lift", V_LIFT),
-    ENTRY("read", V_READ),
-    ENTRY("talk to", V_TALKTO),
-    ENTRY("unlock", V_UNLOCK),
-    ENTRY("open", V_UNLOCK),
-    ENTRY("turn", V_TURN),
-    ENTRY("hit", V_HIT),
-    ENTRY("punch", V_HIT),
-    ENTRY("kick", V_HIT),
-    ENTRY("kill", V_KILL), /* but does not pass object to kill() */
-    ENTRY("pour", V_POUR),
-    ENTRY("empty", V_POUR),
-    ENTRY("drink", V_DRINK),
-    ENTRY("throw", V_THROW),
-    ENTRY("look at", V_LOOK),
-    ENTRY("look", V_LOOK),
-    ENTRY("examine", V_LOOK),
-    ENTRY("drop", V_DROP),
+#define VERB_S(str, const) { sizeof(str)-1, str, const }
+    VERB_S("n", V_N),
+    VERB_S("s", V_S),
+    VERB_S("e", V_E),
+    VERB_S("w", V_W),
+    VERB_S("i", V_I),
+    VERB_S("inventory", V_I),
+    VERB_S("take", V_TAKE),
+    VERB_S("pick up", V_TAKE),
+    VERB_S("lift", V_LIFT),
+    VERB_S("read", V_READ),
+    VERB_S("talk to", V_TALKTO),
+    VERB_S("unlock", V_UNLOCK),
+    VERB_S("open", V_UNLOCK),
+    VERB_S("turn", V_TURN),
+    VERB_S("hit", V_HIT),
+    VERB_S("punch", V_HIT),
+    VERB_S("kick", V_HIT),
+    VERB_S("kill", V_KILL), /* but does not pass object to kill() */
+    VERB_S("pour", V_POUR),
+    VERB_S("empty", V_POUR),
+    VERB_S("drink", V_DRINK),
+    VERB_S("throw", V_THROW),
+    VERB_S("look at", V_LOOK),
+    VERB_S("look", V_LOOK),
+    VERB_S("examine", V_LOOK),
+    VERB_S("drop", V_DROP),
 #ifndef SMALL
-    ENTRY("license", V_LICENSE),
-    ENTRY("help", V_HELP),
-    ENTRY("?", V_HELP),
+    VERB_S("license", V_LICENSE),
+    VERB_S("help", V_HELP),
+    VERB_S("?", V_HELP),
 #endif
-    ENTRY("quit", V_QUIT),
-    ENTRY("exit", V_QUIT),
-#undef ENTRY
+    VERB_S("quit", V_QUIT),
+    VERB_S("exit", V_QUIT),
+#undef VERB_S
 };
 
 #define VERBS sizeof(verbs)/sizeof(struct verb_s)
