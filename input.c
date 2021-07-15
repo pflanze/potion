@@ -180,7 +180,7 @@ unsigned char getinput(void)
 #ifdef SMALL
 		PUTS("What?");
 #else
-		PUTS("I do not understand. Say '?' or 'help' for help.");
+		PUTS("I do not understand. Say help for help.");
 #endif
 	}
 }
