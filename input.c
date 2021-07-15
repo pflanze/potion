@@ -12,6 +12,18 @@ struct verb_s
 	unsigned char verbnum;
 };
 
+#define NARGS_0             0
+#define NARGS_OPTIONAL      1
+#define NARGS_1             2
+
+#define NUMNARGS 3
+
+static const char* nargs_help[NUMNARGS] = {
+    "without an object",
+    "optionally with an object",
+    "with an object",
+};
+
 static const struct verb_s verbs[] =
 {
 #define ENTRY(str, const) { sizeof(str)-1, str, const }
@@ -20,6 +32,7 @@ static const struct verb_s verbs[] =
     ENTRY("e", V_E),
     ENTRY("w", V_W),
     ENTRY("i", V_I),
+    ENTRY("inventory", V_I),
     ENTRY("take", V_TAKE),
     ENTRY("pick up", V_TAKE),
     ENTRY("lift", V_LIFT),
@@ -31,7 +44,7 @@ static const struct verb_s verbs[] =
     ENTRY("hit", V_HIT),
     ENTRY("punch", V_HIT),
     ENTRY("kick", V_HIT),
-    ENTRY("kill", V_KILL),
+    ENTRY("kill", V_KILL), /* but does not pass object to kill() */
     ENTRY("pour", V_POUR),
     ENTRY("empty", V_POUR),
     ENTRY("drink", V_DRINK),
@@ -52,16 +65,54 @@ static const struct verb_s verbs[] =
 
 #define VERBS sizeof(verbs)/sizeof(struct verb_s)
 
+#ifndef SMALL
+static const v_nargs[NUMV] = {
+#define T(const, nargs) nargs
+    T(V_N, NARGS_0),
+    T(V_S, NARGS_0),
+    T(V_E, NARGS_0),
+    T(V_W, NARGS_0),
+    T(V_I, NARGS_0),
+    T(V_TAKE, NARGS_1),
+    T(V_LIFT, NARGS_1),
+    T(V_READ, NARGS_1),
+    T(V_TALKTO, NARGS_1),
+    T(V_UNLOCK, NARGS_1),
+    T(V_TURN, NARGS_1),
+    T(V_HIT, NARGS_1),
+    T(V_KILL, NARGS_1), /* but does not pass object to kill() */
+    T(V_POUR, NARGS_1),
+    T(V_DRINK, NARGS_1),
+    T(V_THROW, NARGS_1),
+    T(V_LOOK, NARGS_OPTIONAL),
+    T(V_DROP, NARGS_1),
+    T(V_LICENSE, NARGS_0),
+    T(V_HELP, NARGS_0),
+    T(V_QUIT, NARGS_0),
+#undef T
+};
+#endif
+
 void print_help(void) {
-    unsigned char i;
+    unsigned char inargs, i, is_first;
     PUTS("You can say the following:\n");
-    for (i=0; i<VERBS; i++) {
-        if (i != 0) {
-            PRINTS(", ");
+    for (inargs=0; inargs<NUMNARGS; inargs++) {
+        prints("- ");
+        prints(nargs_help[inargs]);
+        prints(":\n\n  ");
+        is_first = 1;
+        for (i=0; i<VERBS; i++) {
+            if (v_nargs[verbs[i].verbnum - 1] == inargs) {
+                if (is_first) {
+                    is_first = 0;
+                } else {
+                    prints(", ");
+                }
+                prints(verbs[i].s);
+            }
         }
-        PRINTS(verbs[i].s);
+        prints("\n\n");
     }
-    PRINTS("\n\n"); 
 }
 
 

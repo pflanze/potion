@@ -24,6 +24,8 @@
 #define V_QUIT 20
 #define V_HELP 21
 
+#define NUMV 21
+
 /* Show help text with all the verbs */
 void print_help(void);
 
